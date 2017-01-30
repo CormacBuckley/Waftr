@@ -1,0 +1,55 @@
+<head>
+  <title>Waftr</title>
+  <link rel="stylesheet" type="text/css" href="\stylesheet.css">
+  <link rel="icon"
+      type="image/png"
+      href="logo.png">
+</head>
+
+<body class="b">
+{{> navigation}}
+
+{{> footer}}
+</body>
+
+<template name="home">
+<h1>Home Page</h1>
+<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+</p>
+</template>
+
+<template name="navigation">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="pull-left" href="/"><img src="\logo.png" class="logo"></a>
+          </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+
+                <li><a href="/">Home</a></li>
+                <li><a href="news">News</a></li>
+                <li><a href="collegelife">College Life</a></li>
+                <li><a href="events">Events</a></li>
+                <li><a href="talk">Talk</a></li>
+              </ul>
+            </div>
+          </div>
+  </nav>
+</template>
+
+
+<template name="footer">
+  <div class="footer">
+  <p class="copyright">&copy;The Wafters</p>
+    <a href="contact">Contact</a>
+    <a href="about">About</a>
+  </div>
+</template>
