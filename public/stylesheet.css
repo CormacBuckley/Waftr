@@ -1,7 +1,7 @@
-.b{background-image:url(quad.jpg);
-background-size: 100%;
+//*.b{background-image:url(quad.jpg);
+//background-size: 100%;
  background-repeat:no-repeat;
-}
+}*//
  
  .bn{
 	background-color: #333;
@@ -72,7 +72,9 @@ ul.topnav li a.active {
 
 .copyright{
   color: white;
-  float:right;
+  float: right;
+	position: relative;
+	bottom: 10px;
 }
 
 .in{
@@ -90,11 +92,11 @@ ul.topnav li a.active {
 .footer {
   color:black;
   padding:1em;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position:fixed;
+  bottom:0;
   left: 0;
-  background-color: #333;
+  right: 0;
+  background-color: #222222;
   text-align: center;
   height: 15px;
 }
@@ -102,6 +104,8 @@ ul.topnav li a.active {
 .footer a{
 	text-decoration: none;
 	color: white;
+	position: relative;
+	bottom: 10px;
 }
 
 .footer a:hover{
