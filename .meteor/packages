@@ -22,3 +22,7 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 iron:router
 twbs:bootstrap
 blaze-html-templates
+stylus
+accounts-password
+ian:accounts-ui-bootstrap-3
+accounts-facebook
