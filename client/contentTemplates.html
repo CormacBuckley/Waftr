@@ -8,6 +8,7 @@
 
 <template name="events">
 <h2>This is where events will be</h2>
+{{>hello}}
 </template>
 
 <template name="talk">
@@ -32,4 +33,21 @@
 
 <template name="tips">
 <h2>This is where tips will be</h2>
+</template>
+
+<template name="hello">
+
+<form class ="poll">
+  <input class="bt1" type="checkbox" name="venue" value="carbon"> Carbon {{increment1}}<br>
+  <input class="bt2" type="checkbox" name="venue" value="electric"> Electric {{increment2}}<br>
+  <input class="bt3" type="checkbox" name="venue" value="4/4"> 4/4 {{increment3}}<br>
+  <input class="bt4" type="checkbox" name="venue" value="karma"> Karma {{increment4}}<br>
+  <input class="bt5" type="checkbox" name="venue" value="the kings head"> The Kings Head {{increment5}}<br>
+  <input class="bt6" type="checkbox" name="venue" value="the roisin"> The Roisin {{increment6}}<br>
+  <input class="bt7" type="checkbox" name="venue" value="house party"> House Party {{increment7}}<br>
+  <input class="bt8" type="checkbox" name="venue" value="the skef"> The Skef {{increment8}}<br>
+  <input class="bt9" type="checkbox" name="venue" value="coyotes"> Coyotes {{increment9}}<br>
+  <input class="bt10" type="checkbox" name="venue" value="not going out"> Not Going Out {{increment10}}<br>
+</form> 
+
 </template>
