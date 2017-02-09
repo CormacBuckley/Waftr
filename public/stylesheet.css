@@ -12,6 +12,17 @@ a {text-decoration: none;
    color: white;
 }
 
+button {
+		color: black;
+}
+
+.poll
+{
+	bottom: 30px;
+	right: 5px;
+	position: fixed ;
+}
+
 body {
   margin: 0;
   font-family:'Lato', sans-serif;
