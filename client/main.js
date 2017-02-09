@@ -1,9 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-
 import './main.html';
-
-
 
 Template.hello.onCreated(function helloOnCreated() 
 {
@@ -17,6 +14,7 @@ Template.hello.onCreated(function helloOnCreated()
 	this.increment8 = new ReactiveVar(0);
 	this.increment9 = new ReactiveVar(0);
 	this.increment10 = new ReactiveVar(0);
+	x = [1,1,1,1,1,1,1,1,1,1];
 });
 
 Template.hello.helpers(
@@ -67,43 +65,53 @@ Template.hello.events(
 {	
   'click .bt1'(event, instance) 
   {
-    instance.increment1.set(instance.increment1.get() + 1);
+    instance.increment1.set(instance.increment1.get() + x[0]);
+	x[0] *=-1;
   },
   
   'click .bt2'(event, instance) 
   {
-    instance.increment2.set(instance.increment2.get() + 1);
+    instance.increment2.set(instance.increment2.get() + x[1]);
+	x[1] *=-1;
   },
   'click .bt3'(event, instance) 
   {
-    instance.increment3.set(instance.increment3.get() + 1);
+    instance.increment3.set(instance.increment3.get() + x[2]);
+	x[2] *=-1;
   },
   'click .bt4'(event, instance) 
   {
-    instance.increment4.set(instance.increment4.get() + 1);
+    instance.increment4.set(instance.increment4.get() + x[3]);
+	x[3] *=-1;
   },
   'click .bt5'(event, instance) 
   {
-    instance.increment5.set(instance.increment5.get() + 1);
+    instance.increment5.set(instance.increment5.get() + x[4]);
+	x[4] *=-1;
   },
   'click .bt6'(event, instance) 
   {
-    instance.increment6.set(instance.increment6.get() + 1);
+    instance.increment6.set(instance.increment6.get() + x[5]);
+	x[5] *=-1;
   },
   'click .bt7'(event, instance) 
   {
-    instance.increment7.set(instance.increment7.get() + 1);
+    instance.increment7.set(instance.increment7.get() + x[6]);
+	x[6] *=-1;
   },
   'click .bt8'(event, instance) 
   {
-    instance.increment8.set(instance.increment8.get() + 1);
+    instance.increment8.set(instance.increment8.get() + x[7]);
+	x[7] *=-1;
   },
   'click .bt9'(event, instance) 
   {
-    instance.increment9.set(instance.increment9.get() + 1);
+    instance.increment9.set(instance.increment9.get() + x[8]);
+	x[8] *=-1;
   },
    'click .bt10'(event, instance) 
   {
-    instance.increment10.set(instance.increment10.get() + 1);
+    instance.increment10.set(instance.increment10.get() + x[9]);
+	x[9] *=-1;
   },
 });
