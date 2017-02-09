@@ -8,27 +8,17 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Mileage</th>
-            <th>Action</th>
+            <th>Message Board</th>
         </tr>
         </thead>
         <tbody>
-        {{#each vehicles}}
+        {{#each messages}}
         <tr>
             <td>
-                {{make}}
+                {{name}}
             </td>
             <td>
-                {{model}}
-            </td>
-            <td>
-                {{year}}
-            </td>
-            <td>
-                {{mileage}}
+                {{message}}
             </td>
             <td>
                 <button id="delete" class="btn btn-danger">
@@ -41,38 +31,22 @@
     </table>
 
     <form class="addDataForm">
-      <h3> Add a new Car</h3>
+      <h3> Got something to say?</h3>
       <div class="row">
         <div class="col-sm-1">
-          <label class="form-control" for="make">Make</label>
+          <label class="form-control" for="name">Name</label>
         </div>
       <div class="col-sm-2">
-        <input class="form-control" type="text" name="make" placeholder="Please Enter Make"><br>
+        <input class="form-control" type="text" name="name" placeholder="Please Enter Your Name"><br>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-1">
-        <label class="form-control" for="make">Model</label>
+        <label class="form-control" for="make">Message</label>
       </div>
     <div class="col-sm-2">
-      <input class="form-control" type="text" name="model" placeholder="Please Enter Model"><br>
+      <input class="form-control" type="text" name="model" placeholder="Please Enter Your Message"><br>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-1">
-      <label class="form-control" for="make">Year</label>
-    </div>
-  <div class="col-sm-2">
-    <input class="form-control" type="text" name="year" placeholder="Please Enter Year"><br>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-1">
-      <label class="form-control" for="make">Mileage</label>
-    </div>
-  <div class="col-sm-2">
-    <input class="form-control" type="text" name="mileage" placeholder="Please Enter Mileage"><br>
-  </div>
   </div>
   <input type="submit" value="save" class="btn btn-primary">
   </form>
