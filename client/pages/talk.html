@@ -1,3 +1,53 @@
 <template name="talk">
-<h2>This is where talk will be</h2>
+{{> data}}
+</template>
+
+
+<template name="data">
+<h1>Welcome to Waftr</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Message Board</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each messages}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{message}}
+            </td>
+            <td>
+                <button id="delete" class="btn btn-danger">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <form class="addDataForm">
+      <h3> Got something to say?</h3>
+      <div class="row">
+        <div class="col-sm-1">
+          <label class="form-control" for="name">Name</label>
+        </div>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" name="name" placeholder="Please Enter Your Name"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1">
+        <label class="form-control" for="make">Message</label>
+      </div>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" name="model" placeholder="Please Enter Your Message"><br>
+    </div>
+  </div>
+  <input type="submit" value="save" class="btn btn-primary">
+  </form>
 </template>
