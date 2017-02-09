@@ -2,14 +2,25 @@
 //background-size: 100%;
  background-repeat:no-repeat;
 }*//
- 
+
  .bn{
 	background-color: #333;
-    color:white; 
+    color:white;
  }
- 
+
 a {text-decoration: none;
    color: white;
+}
+
+button {
+		color: black;
+}
+
+.poll
+{
+	bottom: 30px;
+	right: 5px;
+	position: fixed ;
 }
 
 body {
@@ -86,7 +97,7 @@ ul.topnav li a.active {
   margin-bottom:10px;
   border-color:#4EB6D3;
   border-bottom-color: #FFFF0D;
-  
+
 }
 
 .footer {
@@ -122,21 +133,25 @@ ul.topnav li a.active {
   margin: auto;
   width: 70%;
 }
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
 
 .popupbox{
 background-image:url(yellowthing.jpg);
 background-repeat:no-repeat;
 background-size: 100%;
 margin: 0;
-margin-left: 25%; 
+margin-left: 25%;
 margin-right: 25%;
-margin-top: 5%; 
-padding-top: 10px; 
-width: 50%; 
-height: 60%; 
-position: absolute; 
-border: solid #000000 2px; 
-z-index: 9; 
+margin-top: 5%;
+padding-top: 10px;
+width: 50%;
+height: 60%;
+position: absolute;
+border: solid #000000 2px;
+z-index: 9;
 font-family: 'Lato', sans-serif;
-visibility: hidden; 
+visibility: hidden;
 }
