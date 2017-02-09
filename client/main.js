@@ -3,41 +3,27 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
- this.decrement = new ReactiveVar(0);
- this.both = new ReactiveVar(0);
+Meteor.subscribe('userVehicles');
+
+Template.data.helpers({
+  vehicles : function (){
+    return Vehicles.find();
+  }
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-  decrement() {
-    return Template.instance().decrement.get();
-  },
-  both() {
-    return Template.instance().both.get();
-  },
+Template.data.events({
+  'click #delete' : function(event, instance) {
+    // Remove the vehicle with current id
+    Vehicles.remove(this._id)
+  }
 });
 
-Template.hello.events({
-  'click .bt1'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-
-	'click .bt2'(event, instance) {
-    // increment the counter when button is clicked
-    instance.decrement.set(instance.decrement.get() - 1);
-  },
-
-		'click .bt3'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-	instance.decrement.set(instance.decrement.get() - 1);
-	 instance.both.set(instance.both.get() + 1);
-
-  },
+Template.data.events({
+  'submit.addDataForm' : function(event, instance){
+    event.preventDefault();
+    Vehicles.insert({make:event.target.make.value,
+      model:event.target.model.value,
+      year:event.target.year.value,
+      mileage:event.target.mileage.value});
+  }
 });

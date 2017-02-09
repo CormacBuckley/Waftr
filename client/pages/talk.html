@@ -1,0 +1,80 @@
+<template name="talk">
+{{> data}}
+</template>
+
+
+<template name="data">
+<h1>Welcome to Waftr</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Mileage</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each vehicles}}
+        <tr>
+            <td>
+                {{make}}
+            </td>
+            <td>
+                {{model}}
+            </td>
+            <td>
+                {{year}}
+            </td>
+            <td>
+                {{mileage}}
+            </td>
+            <td>
+                <button id="delete" class="btn btn-danger">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <form class="addDataForm">
+      <h3> Add a new Car</h3>
+      <div class="row">
+        <div class="col-sm-1">
+          <label class="form-control" for="make">Make</label>
+        </div>
+      <div class="col-sm-2">
+        <input class="form-control" type="text" name="make" placeholder="Please Enter Make"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1">
+        <label class="form-control" for="make">Model</label>
+      </div>
+    <div class="col-sm-2">
+      <input class="form-control" type="text" name="model" placeholder="Please Enter Model"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <label class="form-control" for="make">Year</label>
+    </div>
+  <div class="col-sm-2">
+    <input class="form-control" type="text" name="year" placeholder="Please Enter Year"><br>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <label class="form-control" for="make">Mileage</label>
+    </div>
+  <div class="col-sm-2">
+    <input class="form-control" type="text" name="mileage" placeholder="Please Enter Mileage"><br>
+  </div>
+  </div>
+  <input type="submit" value="save" class="btn btn-primary">
+  </form>
+
+</template>
