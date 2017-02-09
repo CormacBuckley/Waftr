@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
-<<<<<<< HEAD
 
 Meteor.subscribe('userMessages');
 
@@ -25,5 +24,3 @@ Template.data.events({
       message:event.target.model.value});
   }
 });
-=======
->>>>>>> refs/remotes/origin/master
