@@ -24,3 +24,9 @@ Template.data.events({
       message:event.target.model.value});
   }
 });
+
+Template.data.helpers({
+  loggedIn:function(){
+    return !!Meteor.user();
+  }
+});

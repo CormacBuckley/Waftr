@@ -29,7 +29,7 @@
         {{/each}}
         </tbody>
     </table>
-
+{{#if loggedIn}}
     <form class="addDataForm">
       <h3> Got something to say?</h3>
       <div class="row">
@@ -50,4 +50,5 @@
   </div>
   <input type="submit" value="save" class="btn btn-primary">
   </form>
+  {{/if}}
 </template>
