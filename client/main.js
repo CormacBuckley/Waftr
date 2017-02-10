@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
-Meteor.subscribe('userMessages');
+Meteor.subscribe('allMessages');
 
 Template.data.helpers({
   messages : function (){
@@ -13,15 +13,16 @@ Template.data.helpers({
 Template.data.events({
   'click #delete' : function(event, instance) {
     // Remove the vehicle with current id
-    Messages.remove(this._id)
+    Meteor.call('deleteMessage', this._id)
   }
 });
 
 Template.data.events({
   'submit.addDataForm' : function(event, instance){
     event.preventDefault();
-    Messages.insert({name:event.target.name.value,
-      message:event.target.model.value});
+    Meteor.call('createMessage',{name:event.target.name.value,
+      message:event.target.model.value
+  });
   }
 });
 
