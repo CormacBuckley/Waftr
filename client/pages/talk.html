@@ -20,11 +20,13 @@
             <td>
                 {{message}}
             </td>
+            {{#if loggedIn}}
             <td>
                 <button id="delete" class="btn btn-danger">
                     Delete
                 </button>
             </td>
+            {{/if}}
         </tr>
         {{/each}}
         </tbody>
