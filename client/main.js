@@ -7,6 +7,26 @@ Meteor.subscribe('userPosts');
 Template.posts.helpers({
   charsRemaining: function(){
     return Session.get('charsRemaining');
+  },
+  posts:function(){
+    return Posts.find({},{sort: {date:-1}});
+  },
+  timeDiff:function(postDate){
+    // Subtract current time from time of post to get the difference
+    var timeDiff = new Date().getTime() - postDate.getTime();
+    var diffDays = Math.floor(timeDiff / (1000*360*24));
+    var diffHours = Math.floor(timeDiff / (1000*3600));
+    var diffMins = Math.floor(timeDiff / (1000*60));
+    var diffSecs = Math.floor(timeDiff / (1000));
+
+    if(diffDays > 0)
+    return (diffDays + "d ago");
+    else if (diffHours > 0)
+    return (diffHours + "h ago");
+    else if (diffMins > 0)
+    return (diffMins + "m ago");
+    else if (diffSecs > 0)
+    return (diffSecs + "s ago");
   }
 });
 
@@ -29,7 +49,6 @@ Template.posts.events({
     Meteor.call('insertPost', post);
   }
 });
-
 
 /*Template.data.helpers({
   messages : function (){

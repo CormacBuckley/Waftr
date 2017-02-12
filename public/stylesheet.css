@@ -110,6 +110,7 @@ ul.topnav li a.active {
   background-color: #222222;
   text-align: center;
   height: 15px;
+  z-index: 0;
 }
 
 .footer a{
