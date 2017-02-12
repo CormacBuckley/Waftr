@@ -5,7 +5,36 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
-Meteor.publish('allMessages', function(){
+
+Meteor.methods({
+  'insertPost':function(post){
+    Posts.insert(
+      {
+        post:post,
+        date: new Date(),
+        createdBy: Meteor.userId(),
+        likes:{
+          totalLikes:0,
+          users:[]
+        },
+        retweets:{
+          totalRetweets:0,
+          users:[]
+        }
+      },
+      function( error, result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      }
+    );
+  }
+});
+
+Meteor.publish('userPosts', function(){
+  return Posts.find();
+});
+
+/*Meteor.publish('allMessages', function(){
     return Messages.find();
 });
 
@@ -23,4 +52,4 @@ Meteor.methods({
     'deleteMessage': function(_Id){
         Messages.remove(_Id);
     }
-});
+});*/
