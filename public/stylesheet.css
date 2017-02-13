@@ -156,3 +156,36 @@ z-index: 9;
 font-family: 'Lato', sans-serif;
 visibility: hidden;
 }
+
+.likeBox label:before
+{
+  content: "\f08a";
+  font-family: FontAwesome;
+  color: #3498db;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.likeBox input[type=checkbox]:checked + label:before {
+  content: "\f004";
+  font-family: FontAwesome;
+  color:#333;
+  cursor: pointer;
+  cursor:hand;
+}
+
+.editBox label:before
+{
+  content: "\f040";
+  font-family: FontAwesome;
+  color:#3498db;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.editBox input[type=checkbox]:checked + label:before {
+  content: "Save";
+  color:#333;
+  cursor: pointer;
+  cursor: hand;
+}

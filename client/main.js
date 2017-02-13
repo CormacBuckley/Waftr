@@ -27,8 +27,25 @@ Template.posts.helpers({
     return (diffMins + "m ago");
     else if (diffSecs > 0)
     return (diffSecs + "s ago");
+    else
+    return ("Just now")
+  },
+  checked:function(users){
+    if($.inArray(Meteor.userId(), users) > -1)
+    return true;
+    else
+      return false;
+  },
+  userCreated: function(createdBy){
+    if(createdBy == Meteor.userId())
+    return true;
+    else
+      return false;
+
   }
 });
+
+
 
 Template.posts.onRendered(function(){
   $("#postForm").validate();
@@ -47,6 +64,30 @@ Template.posts.events({
     event.target.reset();
     Session.set("charsRemaining", 140 + "characters remaining");
     Meteor.call('insertPost', post);
+  },
+  'click .likeBox input' : function (event){
+    if(event.toElement.checked){
+      Meteor.call('likePost', this._id);
+    }
+    else {
+      Meteor.call('unlikePost', this._id);
+    }
+  },
+  'click .editBox input' : function(event){
+    if(event.toElement.checked)
+    {
+      $('#edit' + this._id).removeClass('hidden');
+      $('#post' + this._id).hide();
+    }
+    else {
+      var post = $('#edit' + this._id).val();
+      Meteor.call('updatePost', {id :this._id, post:post});
+      $('#edit'+ this._id).addClass('hidden');
+      $('#post' + this._id).show();
+    }
+  },
+  'click .deleteBox input' : function(event, instance){
+    Meteor.call('deletePost', this._id)
   }
 });
 
@@ -71,9 +112,9 @@ Template.data.events({
   });
   }
 });
-
-Template.data.helpers({
+*/
+Template.posts.helpers({
   loggedIn:function(){
     return !!Meteor.user();
   }
-});*/
+});

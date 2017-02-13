@@ -27,7 +27,45 @@ Meteor.methods({
         if(result) console.log(result);
       }
     );
+  },
+  'likePost' : function(postID){
+      Posts.update({_id:postID},
+      {$inc : {"likes.totalLikes":1}}),
+      function(error, result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      };
+      Posts.update(
+        {_id:postId},
+        {$addToSet: {"likes.users":this.userId}}
+      ), function(error,result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      };
+    },
+  'unlikePost' : function(postID){
+    Posts.update({_id:postID},
+    {$inc : {"likes.totalLikes":-1}}),
+    function(error, result){
+      if(error) console.log(error);
+      if(result) console.log(result);
+    };
+    Posts.update(
+      {_id:postId},
+      {$pop: {"likes.users":this.userId}}
+    ), function(error,result){
+      if(error) console.log(error);
+      if(result) console.log(result);
+    };
+  },
+  'deletePost' : function(postId){
+    Posts.remove(postId);
+  },
+
+  'updatePost' : function(postObj){
+    Posts.update({_id:postObj.id}, {$set: {post: postObj.post}});
   }
+
 });
 
 Meteor.publish('userPosts', function(){
