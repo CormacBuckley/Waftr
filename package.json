@@ -10,6 +10,6 @@
     "meteor-node-stubs": "~0.2.0"
 },
 "scripts": {
-	"meteor": "MONGO_URL=mongodb://mongodb2634bc:fu4geh@danu7.it.nuigalway.ie:8717/mongodb2634 meteor"
+	"meteor": "SET MONGO_URL=mongodb://mongodb2634bc:fu4geh@danu7.it.nuigalway.ie:8717/mongodb2634 meteor"
 }
 }
