@@ -2,12 +2,47 @@
 {{> posts}}
 </template>
 
+
 <template name="posts">
   {{#if loggedIn}}
   <br>
 <div class="well col-xs-6 col-xs-offset-3">
   <div class="row col-xs-10 col-xs-offset-1">
     <form class="form-horizontal" role="form" id="postForm">
+
+
+<template name="data">
+<h1>Welcome to Waftr</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Message Board</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each messages}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{message}}
+            </td>
+            {{#if loggedIn}}
+            <td>
+                <button id="delete" class="btn btn-danger">
+                    Delete
+                </button>
+            </td>
+            {{/if}}
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+{{#if loggedIn}}
+    <form class="addDataForm">
+      <h3> Got something to say?</h3>
+
       <div class="row">
         <div class="form-group">
           <div class="col-xs-12" id="well-post">
