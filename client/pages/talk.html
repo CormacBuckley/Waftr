@@ -1,56 +1,93 @@
 <template name="talk">
-{{> data}}
+{{> posts}}
 </template>
 
-
-<template name="data">
-<h1>Welcome to Waftr</h1>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>Message Board</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each messages}}
-        <tr>
-            <td>
-                {{name}}
-            </td>
-            <td>
-                {{message}}
-            </td>
-            {{#if loggedIn}}
-            <td>
-                <button id="delete" class="btn btn-danger">
-                    Delete
-                </button>
-            </td>
-            {{/if}}
-        </tr>
-        {{/each}}
-        </tbody>
-    </table>
-{{#if loggedIn}}
-    <form class="addDataForm">
-      <h3> Got something to say?</h3>
+<template name="posts">
+  {{#if loggedIn}}
+  <br>
+<div class="well col-xs-6 col-xs-offset-3">
+  <div class="row col-xs-10 col-xs-offset-1">
+    <form class="form-horizontal" role="form" id="postForm">
       <div class="row">
-        <div class="col-sm-1">
-          <label class="form-control" for="name">Name</label>
+        <div class="form-group">
+          <div class="col-xs-12" id="well-post">
+            <textarea class="form-control required" rows="3" id="inputPost" placeholder="Got something to say?" maxlength="140"></textarea>
+            <label id="charRemaining" for="inputPost">{{charsRemaining}}</label>
+          </div>
         </div>
-      <div class="col-sm-2">
-        <input class="form-control" type="text" name="name" placeholder="Please Enter Your Name"><br>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-1">
-        <label class="form-control" for="make">Message</label>
+      <div class="form-group">
+        <div class="col-xs-3">
+          <!-- Camera-->
+          <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-3">
+          <!--Video-->
+          <i class="fa fa-video-camera fa-lg" aria-hidden="true"></i>
+        </div>
+          <div class="col-xs-3">
+        <!--Chart-->
+        <i class="fa fa-bar-chart fa-lg" aria-hidden="true"></i>
       </div>
-    <div class="col-sm-2">
-      <input class="form-control" type="text" name="model" placeholder="Please Enter Your Message"><br>
+        <div class="col-xs-3">
+      <!--Submit-->
+      <button type="submit" class="btn btn-primary">Post</button>
     </div>
   </div>
-  <input type="submit" value="save" class="btn btn-primary">
-  </form>
-  {{/if}}
+</form>
+</div>
+</div>
+{{/if}}
+<div class="row col-sm-8 col-sm-offset-2 textPost">
+  <div class="row">
+    {{#each posts}}
+    <div class="well">
+      <div class="row">
+        <div class="col-sm-2 pull-left">
+          {{> avatar shape="rounded"}}
+        </div>
+        <div class="col-sm-3 pull-right">
+          {{timeDiff (date)}}
+        </div>
+      </div>
+      <div class="row spacer">
+        <div class="col-sm-12">
+          <input class="form-control hidden" type="text" id="edit{{_id}}" value={{post}}>
+          <div id="post{{_id}}">
+            <br>
+            {{post}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row spacer">
+        <div class="col-xs-3">
+          <div class="likeBox">
+            <input type="checkbox" id="like{{_id}}" checked={{checked (likes.users)}}>
+            <label for="like{{_id}}">
+              {{likes.totalLikes}}
+            </label>
+          </div>
+        </div>
+        {{#if userCreated (createdBy)}}
+        <div class="col-xs-3">
+          <div class="deleteBox">
+        <a class="btn btn-trash">
+          <i class="fa fa-trash" id="delete{{_id}}" aria-hidden="true"></i>
+        </a>
+      </div>
+        </div>
+        {{/if}}
+        {{#if userCreated (createdBy)}}
+        <div class="col-xs-3 editBox">
+          <input type="checkbox" id="editPost{{this._id}}">
+          <label for="editPost{{this._id}}">
+          </label>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
 </template>
