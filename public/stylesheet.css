@@ -226,3 +226,18 @@ input[type=checkbox]{
   cursor: pointer;
   cursor: hand;
 }
+.deleteBox label:before{
+  content: "\f014";
+  font-family: FontAwesome;
+  color: #3498db;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.deleteBox input[type=checkbox]:checked + label:before{
+  content: "\f014";
+  font-family: FontAwesome;
+  color: #333;
+  cursor: pointer;
+  cursor: hand;
+}
