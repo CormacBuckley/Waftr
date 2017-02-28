@@ -4,6 +4,9 @@
   <link rel="icon"
       type="image/png"
       href="logo.png">
+	  <style>
+
+</style>
 </head>
 
 <body class="b">
@@ -18,17 +21,28 @@
 		    <div class="navbar-header">
 		      <a class="pull-left" href="/"><img src="\logo.png" class="logo"></a>
 		    </div>
+			
 		    <ul class="nav navbar-nav">
 		      <li><a href="/">Home</a></li>
 		      <li><a href="news">News</a></li>
-		      <li><a href="collegeLife">College Life</a></li>
+  			  <li class="dropdown">
+					<a href="#" class="dropbtn">College Life</a>
+						<div class="dropdown-content">
+						<a href="tips">Just the tips</a>
+						<a href="firstyear">Just first years</a>
+						<a href="#">Just the tips</a>
+					</div>
+					</li>
+				
 		      <li><a href="events">Events</a></li>
 			  <li><a href="talk">Talk</a></li>
 		    </ul>
-			<ul class="nav navbar-nav navbar-right">
+			
+					<ul class="nav navbar-nav navbar-right">
 				{{> loginButtons}}
 			</ul>
-		  </div>
+			</div>
+		  
 		</nav>
 </template>
 
