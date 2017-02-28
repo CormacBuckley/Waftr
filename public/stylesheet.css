@@ -156,22 +156,73 @@ font-family: 'Lato', sans-serif;
 visibility: hidden;
 }
 
-input[type = checkbox]{
+
+.dropdown-content {
+    display: none;
+
+    position: absolute;
+	width: 105px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	overflow: hidden;
+	background-color: #222222;
+	text-decoration: none;
+}
+
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: Maroon;
+	text-decoration: none;
+}
+
+l
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+input[type=checkbox]{
   visibility: hidden;
 }
 
-.likeBox label:before
-{
+.likeBox label:before{
   content: "\f118";
+  font-family: FontAwesome;
+  color: #3498db;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.likeBox input[type=checkbox]:checked + label:before{
+  content: "\f119";
   font-family: FontAwesome;
   color: #333;
   cursor: pointer;
   cursor: hand;
 }
-.likeBox input[type = checkbox]:checked + label:before{
-  content: "\f004";
+
+.editBox label:before{
+  content: "\f040";
   font-family: FontAwesome;
-  color:#333;
-  cursor:pointer;
-  cursor:hand;
+  color: #3498db;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.editBox input[type=checkbox]:checked + label:before{
+  content:"Save";
+  color: #333;
+  cursor: pointer;
+  cursor: hand;
 }
