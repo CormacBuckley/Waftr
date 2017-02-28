@@ -1,2 +1,4 @@
 node_modules/
 client/contentTemplates.html
+
+package.json
