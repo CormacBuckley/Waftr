@@ -155,3 +155,23 @@ z-index: 9;
 font-family: 'Lato', sans-serif;
 visibility: hidden;
 }
+
+input[type = checkbox]{
+  visibility: hidden;
+}
+
+.likeBox label:before
+{
+  content: "\f118";
+  font-family: FontAwesome;
+  color: #333;
+  cursor: pointer;
+  cursor: hand;
+}
+.likeBox input[type = checkbox]:checked + label:before{
+  content: "\f004";
+  font-family: FontAwesome;
+  color:#333;
+  cursor:pointer;
+  cursor:hand;
+}
