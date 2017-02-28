@@ -192,6 +192,8 @@ l
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
 input[type=checkbox]{
   visibility: hidden;
 }
