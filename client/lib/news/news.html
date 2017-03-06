@@ -1,10 +1,7 @@
 <template name="news">
 	<div class="container">
       <header>
-        <h1>Todo List</h1>
-	  <form class="new-post">
-		<input type="text" name="text" placeholder="Type to add new tasks" />
-	  </form>
+        <h1>THE NEWS</h1>
 	  </header>
 	  <ul>
         {{#each news}}
@@ -12,4 +9,11 @@
         {{/each}}
       </ul>
     </div>
+</template>
+<template name="task">
+	<li>
+	{{headline}}
+	{{content}}
+	 <a href="newsPost" class="btn btn-primary">Go somewhere</a>
+</li>
 </template>
