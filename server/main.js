@@ -28,23 +28,36 @@ Meteor.methods({
       }
     );
   },
-  'likePost' : function(postID){
-      Posts.update({_id:postID},
-      {$inc : {"likes.totalLikes":1}}),
-      function(error, result){
-        if(error) console.log(error);
-        if(result) console.log(result);
-      };
+
+  'likePost' : function(postId){
+      var update = true;
       Posts.update(
         {_id:postId},
-        {$addToSet: {"likes.users":this.userId}}
+        {$addToSet: {"likes.users":Meteor.userId()}}
       ), function(error,result){
-        if(error) console.log(error);
-        if(result) console.log(result);
+        if(error)
+        {
+          //user has already liked this post
+          update = false;
+        }
+        if(result)
+        {
+          //Increment counter if user likes it
+          update = true;
+        }
       };
+
+      if(update){
+        Posts.update({_id:postId},
+        {$inc : {"likes.totalLikes": 1}}),
+        function(error, result){
+          if(error) console.log(error);
+          if(result) console.log(result);
+        };
+      }
     },
-  'unlikePost' : function(postID){
-    Posts.update({_id:postID},
+  'unlikePost' : function(postId){
+    Posts.update({_id:postId},
     {$inc : {"likes.totalLikes":-1}}),
     function(error, result){
       if(error) console.log(error);
@@ -52,7 +65,7 @@ Meteor.methods({
     };
     Posts.update(
       {_id:postId},
-      {$pop: {"likes.users":this.userId}}
+      {$pop: {"likes.users":Meteor.userId()}}
     ), function(error,result){
       if(error) console.log(error);
       if(result) console.log(result);

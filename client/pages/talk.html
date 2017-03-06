@@ -70,14 +70,13 @@
           </div>
         </div>
         {{#if userCreated (createdBy)}}
-        <div class="col-xs-3">
-          <div class="deleteBox">
-        <a class="btn btn-trash">
-          <i class="fa fa-trash" id="delete{{_id}}" aria-hidden="true"></i>
-        </a>
-      </div>
+        <div class="col-xs-3 deleteBox">
+          <input type="checkbox" id="deletePost{{this._id}}">
+          <label for="deletePost{{this._id}}">
+          </label>
         </div>
         {{/if}}
+
         {{#if userCreated (createdBy)}}
         <div class="col-xs-3 editBox">
           <input type="checkbox" id="editPost{{this._id}}">
