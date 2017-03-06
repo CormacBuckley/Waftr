@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 
 Meteor.subscribe('newsPosts');
 import './news.html';
+import './tasks.js';
 
 Template.news.helpers({
 	news() {
