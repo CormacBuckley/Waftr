@@ -1,5 +1,5 @@
 Router.route('/', {
-template: 'home'
+template: 'news'
 });
 Router.route('/news');
 Router.route('/collegelife');
