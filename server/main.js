@@ -85,6 +85,10 @@ Meteor.publish('userPosts', function(){
   return Posts.find();
 });
 
+Meteor.settings.contactForm = {
+  emailTo: 'naoisecallery2@gmail.com'
+};
+
 /*Meteor.publish('allMessages', function(){
     return Messages.find();
 });
