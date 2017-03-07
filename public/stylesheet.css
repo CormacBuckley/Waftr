@@ -156,6 +156,10 @@ font-family: 'Lato', sans-serif;
 visibility: hidden;
 }
 
+.contactForm
+{
+	margin: 10%;
+}
 
 .dropdown-content {
     display: none;
