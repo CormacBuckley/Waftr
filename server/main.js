@@ -17,6 +17,9 @@ Meteor.methods({
           totalLikes:0,
           users:[]
         },
+        dislikes:{
+          users:[]
+        },
         retweets:{
           totalRetweets:0,
           users:[]
@@ -29,7 +32,7 @@ Meteor.methods({
     );
   },
 
-  'likePost' : function(postId){
+  'dislikePost' : function(postId){
       var update = true;
       Posts.update(
         {_id:postId},
@@ -56,6 +59,37 @@ Meteor.methods({
         };
       }
     },
+
+    'likePost' : function(postId){
+        var set = true;
+        Posts.update(
+          {_id:postId},
+          {$addToSet: {"dislikes.users":Meteor.userId()}}
+        ), function(error,result){
+          if(error)
+          {
+            //user has already liked this post
+            set = false;
+          }
+          if(result)
+          {
+            //Increment counter if user likes it
+            set = true;
+          }
+        };
+
+        if(set){
+          Posts.update({_id:postId},
+          {$inc : {"likes.totalLikes": -1}}),
+          function(error, result){
+            if(error) console.log(error);
+            if(result) console.log(result);
+          };
+        }
+      },
+
+
+
   'unlikePost' : function(postId){
     Posts.update({_id:postId},
     {$inc : {"likes.totalLikes":-1}}),

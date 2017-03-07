@@ -43,34 +43,45 @@
     {{#each posts}}
     <div class="well">
       <div class="row">
-        <div class="col-sm-2 pull-left">
+        <div class="col-sm-6 pull-left">
           {{> avatar shape="rounded"}}
         </div>
-        <div class="col-sm-3 pull-right">
-          {{timeDiff (date)}}
-        </div>
+        <div class="col-sm-1 pull-right">
+          <div class="likeBox">
+            <input type="checkbox" id="like{{_id}}" checked={{checked (likes.users)}}>
+            <label for="like{{_id}}">
+            </label>
+          </div>
+      </div>
+      <div class="col-sm-1 pull-right">
+        {{timeDiff (date)}}
+      </div>
       </div>
       <div class="row spacer">
-        <div class="col-sm-12">
+        <div class="col-sm-11 pull-left">
           <input class="form-control hidden" type="text" id="edit{{_id}}" value={{post}}>
           <div id="post{{_id}}">
             <br>
             {{post}}
           </div>
         </div>
+        <div class="col-sm-1">
+          <div id="post{{_id}}">
+            {{likes.totalLikes}}
+          </div>
+        </div>
       </div>
 
       <div class="row spacer">
-        <div class="col-xs-3">
-          <div class="likeBox">
-            <input type="checkbox" id="like{{_id}}" checked={{checked (likes.users)}}>
-            <label for="like{{_id}}">
-              {{likes.totalLikes}}
+        <div class="col-xs-1 pull-right">
+          <div class="dislikeBox">
+            <input type="checkbox" id="dislikeBox{{_id}}" checked={{checked (dislikes.users)}}>
+            <label for="dislikeBox{{_id}}">
             </label>
           </div>
         </div>
         {{#if userCreated (createdBy)}}
-        <div class="col-xs-3 deleteBox">
+        <div class="col-xs-4 deleteBox">
           <input type="checkbox" id="deletePost{{this._id}}">
           <label for="deletePost{{this._id}}">
           </label>

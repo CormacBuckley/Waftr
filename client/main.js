@@ -70,7 +70,15 @@ Template.posts.events({
       Meteor.call('likePost', this._id);
     }
     else {
-      Meteor.call('unlikePost', this._id);
+      Meteor.call('dislikePost', this._id);
+    }
+  },
+  'click .dislikeBox input' : function (event){
+    if(event.toElement.checked){
+      Meteor.call('dislikePost', this._id);
+    }
+    else {
+      Meteor.call('likePost', this._id);
     }
   },
   'click .editBox input' : function(event){

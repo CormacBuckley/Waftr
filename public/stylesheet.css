@@ -203,17 +203,35 @@ input[type=checkbox]{
 }
 
 .likeBox label:before{
-  content: "\f118";
+  content: "\f077";
   font-family: FontAwesome;
-  color: #3498db;
+  font-size: 24px;
+  color: #32CD32;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.dislikeBox label:before{
+  content: "\f078";
+  font-family: FontAwesome;
+  font-size: 24px;
+  color: #ff0000;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.dislikeBox input[type=checkbox]:checked + label:before{
+  content: "\f078";
+  font-family: FontAwesome;
+  color: #D3D3D3;
   cursor: pointer;
   cursor: hand;
 }
 
 .likeBox input[type=checkbox]:checked + label:before{
-  content: "\f119";
+  content: "\f077";
   font-family: FontAwesome;
-  color: #333;
+  color: #D3D3D3;
   cursor: pointer;
   cursor: hand;
 }
