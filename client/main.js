@@ -62,7 +62,7 @@ Template.posts.events({
     var post = event.target.inputPost.value;
     //Clearing the textarea contents
     event.target.reset();
-    Session.set("charsRemaining", 140 + "characters remaining");
+    Session.set("charsRemaining", 140 + " characters remaining");
     Meteor.call('insertPost', post);
   },
   'click .likeBox input' : function (event){
