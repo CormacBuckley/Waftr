@@ -33,3 +33,5 @@ themeteorchef:jquery-validation
 session
 utilities:avatar
 bredikhin:contact-form
+fullcalendar:fullcalendar
+momentjs:moment
