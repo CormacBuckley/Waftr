@@ -1,8 +1,4 @@
-//*.b{background-image:url(quad.jpg);
-//background-size: 100%;
- background-repeat:no-repeat;
-}*//
-
+/*calendar start*/
 .fc-event-container {
   padding: 5px !important;
 }
@@ -68,7 +64,7 @@ a {text-decoration: none;
 button {
 		color: black;
 }
-
+/*calendar end*/
 .poll
 {
 	bottom: 30px;
