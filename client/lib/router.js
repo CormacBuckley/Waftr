@@ -3,7 +3,7 @@ template: 'home'
 });
 Router.route('/news');
 Router.route('/collegelife');
-Router.route('/eventPage');
+Router.route('/events');
 Router.route('/talk');
 Router.route('/about');
 Router.route('/contact');
