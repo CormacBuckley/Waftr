@@ -1,8 +1,7 @@
 AdminConfig = {
-adminEmails: ['eamon.dunne@gmail.com','cbuckley97@gmail.com'],
+adminEmails: ['eamondunne@gmail.com','cbuckley97@gmail.com','ed123@hotmail.com'],
 collections:
 {
-Messages: {}
-//Comments: {}
+//News: {}
 }
 }
