@@ -5,6 +5,14 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
+Avatar.setOptions({
+  customImageProperty: function() {
+    var user = this;
+    user.profileImageUrl  = "quad.jpg";
+    return user.profileImageUrl;
+  }
+});
+
 
 Meteor.methods({
   'insertPost':function(post){

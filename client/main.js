@@ -4,9 +4,21 @@ import './main.html';
 
 Meteor.subscribe('userPosts');
 
+Avatar.setOptions({
+  customImageProperty: function() {
+    var user = this;
+    user.profileImageUrl  = "quad.jpg";
+    return user.profileImageUrl;
+  }
+});
+
+
 Template.posts.helpers({
   charsRemaining: function(){
     return Session.get('charsRemaining');
+  },
+  userID: function(){
+    return Meteor.userID();
   },
   posts:function(){
     return Posts.find({},{sort: {date:-1}});
