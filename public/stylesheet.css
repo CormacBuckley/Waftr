@@ -51,14 +51,13 @@
     color: blue;
   }
 }
-
- .bn{
+ /*.bn{
 	background-color: #333;
     color:white;
- }
+ }*/
 
 a {text-decoration: none;
-   color: white;
+   color: black;
 }
 
 button {

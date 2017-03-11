@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base'
+import { Accounts } from 'meteor/accounts-base';
 
 Meteor.startup(() => {
   // code to run on server at startup
@@ -83,6 +83,9 @@ Meteor.methods({
 
 Meteor.publish('userPosts', function(){
   return Posts.find();
+});
+Meteor.publish('newsPosts', function(){
+	return News.find();
 });
 
 Meteor.settings.contactForm = {
