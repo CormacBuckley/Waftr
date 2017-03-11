@@ -88,6 +88,10 @@ Meteor.publish('newsPosts', function(){
 	return News.find();
 });
 
+Meteor.settings.contactForm = {
+  emailTo: 'naoisecallery2@gmail.com'
+};
+
 /*Meteor.publish('allMessages', function(){
     return Messages.find();
 });
