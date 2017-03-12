@@ -2,12 +2,60 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
+
+Meteor.subscribe('userTips');
+
+
+Template.tips.onCreated(function numtips() {
+	this.counter = new ReactiveVar(0);
+});
+
+Template.tips.helpers({
+	
+	counter(){
+		return Template.instance().counter.get();
+	},
+	
+	charRemaining: function(){
+    return Session.get('charRemaining');
+  },
+});
+
+Template.tips.onRendered(function(){
+  $("#tipsForm").validate();
+});
+
+Template.tips.events({
+	'click button'(event, instance){
+		instance.counter.set(instance.counter.get() + 1);
+	},
+	
+	'submit button #tipsForm': function(event){
+    event.preventDefault();
+    var tip = event.target.tp.value;
+    //Clearing the textarea contents
+    event.target.reset();
+    Session.set("charRemaining", 140 + "charcters remaining");
+    Meteor.call('insertTip', tip);
+  },
+});
+
+
+
+
+
+
+
+
+
+
+
 Meteor.subscribe('userPosts');
 
 Avatar.setOptions({
   customImageProperty: function() {
     var user = this;
-    user.profileImageUrl  = "quad.jpg";
+    user.profileImageUrl  = "eamon.jpg";
     return user.profileImageUrl;
   }
 });
@@ -61,6 +109,15 @@ Template.posts.helpers({
 
 Template.posts.onRendered(function(){
   $("#postForm").validate();
+});
+
+
+Template.tips.events({
+	'keyup #tp': function(event){
+    //Retrieve the contents from the Textarea
+    var iText = event.target.value;
+    Session.set("charRemaining", (140-iText.length) + " characters remaining");
+  },
 });
 
 Template.posts.events({
