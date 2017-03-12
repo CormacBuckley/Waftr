@@ -5,7 +5,7 @@
 <template name="posts">
   {{#if loggedIn}}
   <br>
-<div class="well col-xs-6 col-xs-offset-3">
+<div class="well col-xs-8 col-xs-offset-2">
   <div class="row col-xs-10 col-xs-offset-1">
     <form class="form-horizontal" role="form" id="postForm">
       <div class="row">
@@ -19,7 +19,7 @@
       <div class="form-group">
         <div class="col-xs-3">
           <!-- Camera-->
-          <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-image fa-lg" aria-hidden="true"></i>
         </div>
         <div class="col-xs-3">
           <!--Video-->
@@ -38,47 +38,55 @@
 </div>
 </div>
 {{/if}}
-<div class="row col-sm-8 col-sm-offset-2 textPost">
+<div class="row col-sm-10 col-sm-offset-1 textPost">
   <div class="row">
     {{#each posts}}
     <div class="well">
       <div class="row">
-        <div class="col-sm-2 pull-left">
+        <div class="col-sm-8 pull-left">
           {{> avatar user=this shape="circle"}}
         </div>
-        <div class="col-sm-3 pull-right">
-          {{timeDiff (date)}}
-        </div>
-      </div>
-      <div class="row spacer">
-        <div class="col-sm-12">
-          <input class="form-control hidden" type="text" id="edit{{_id}}" value={{post}}>
-          <div id="post{{_id}}">
-            <br>
-            {{post}}
-          </div>
-        </div>
-      </div>
-
-      <div class="row spacer">
-        <div class="col-xs-3">
+        <div class="col-sm-1 pull-right">
           <div class="likeBox">
             <input type="checkbox" id="like{{_id}}" checked={{checked (likes.users)}}>
             <label for="like{{_id}}">
-              {{likes.totalLikes}}
             </label>
           </div>
+      </div>
+      <div class="col-sm-1 pull-right">
+        {{timeDiff (date)}}
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-11 pull-left">
+          <input class="form-control hidden" type="text" id="edit{{_id}}" value={{post}}>
+          <div id="post{{_id}}">
+            {{post}}
+          </div>
         </div>
+        <div class="col-sm-1">
+          <div id="post{{_id}}">
+            {{likes.totalLikes}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pull-right">
+        <div class="dislikeBox">
+          <input type="checkbox" id="dislikeBox{{_id}}" checked={{checked (dislikes.users)}}>
+          <label for="dislikeBox{{_id}}">
+          </label>
+        </div>
+      </div>
         {{#if userCreated (createdBy)}}
-        <div class="col-xs-3 deleteBox">
+        <div class="col-xs-5 deleteBox">
           <input type="checkbox" id="deletePost{{this._id}}">
           <label for="deletePost{{this._id}}">
           </label>
         </div>
         {{/if}}
-
         {{#if userCreated (createdBy)}}
-        <div class="col-xs-3 editBox">
+        <div class="col-xs-6 editBox">
           <input type="checkbox" id="editPost{{this._id}}">
           <label for="editPost{{this._id}}">
           </label>
