@@ -8,7 +8,7 @@ Meteor.startup(() => {
 Avatar.setOptions({
   customImageProperty: function() {
     var user = this;
-    user.profileImageUrl  = "quad.jpg";
+    user.profileImageUrl  = "eamon.jpg";
     return user.profileImageUrl;
   }
 });
@@ -19,6 +19,28 @@ Meteor.methods({
     Posts.insert(
       {
         post:post,
+        date: new Date(),
+        createdBy: Meteor.userId(),
+        likes:{
+          totalLikes:0,
+          users:[]
+        },
+        retweets:{
+          totalRetweets:0,
+          users:[]
+        }
+      },
+      function( error, result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      }
+    );
+  },
+  
+  'insertTip':function(tip){
+    Tips.insert(
+      {
+        tip:tip,
         date: new Date(),
         createdBy: Meteor.userId(),
         likes:{
@@ -94,6 +116,10 @@ Meteor.publish('userPosts', function(){
 });
 Meteor.publish('newsPosts', function(){
 	return News.find();
+});
+
+Meteor.publish('tipsPosts', function(){
+	return Tips.find();
 });
 
 Meteor.settings.contactForm = {
