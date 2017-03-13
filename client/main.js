@@ -30,6 +30,12 @@ Template.tips.events({
 		instance.counter.set(instance.counter.get() + 1);
 	},
 	
+	'keyup #tp': function(event){
+    //Retrieve the contents from the Textarea
+    var iText = event.target.value;
+    Session.set("charRemaining", (140-iText.length) + " characters remaining");
+	},
+	
 	'submit button #tipsForm': function(event){
     event.preventDefault();
     var tip = event.target.tp.value;
@@ -112,13 +118,7 @@ Template.posts.onRendered(function(){
 });
 
 
-Template.tips.events({
-	'keyup #tp': function(event){
-    //Retrieve the contents from the Textarea
-    var iText = event.target.value;
-    Session.set("charRemaining", (140-iText.length) + " characters remaining");
-  },
-});
+
 
 Template.posts.events({
   'keyup #inputPost': function(event){

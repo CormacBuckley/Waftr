@@ -1,5 +1,0 @@
-
-<template name="tips">
-	<button>Click Me</button>
-	<p>lel {{counter}}</p>
-</template>
