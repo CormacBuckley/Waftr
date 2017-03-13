@@ -19,6 +19,16 @@ Template.tips.helpers({
 	charRemaining: function(){
     return Session.get('charRemaining');
   },
+  
+    userID: function(){
+    return Meteor.userID();
+  },
+  
+  tips:function(){
+    return Tips.find({},{sort: {date:-1}});
+  },
+  
+  
 });
 
 Template.tips.onRendered(function(){
@@ -36,7 +46,7 @@ Template.tips.events({
     Session.set("charRemaining", (140-iText.length) + " characters remaining");
 	},
 	
-	'submit button #tipsForm': function(event){
+	'submit #tipsForm': function(event){
     event.preventDefault();
     var tip = event.target.tp.value;
     //Clearing the textarea contents
