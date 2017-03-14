@@ -77,12 +77,17 @@ button {
       display: none; 
     }
   }
+  
+  body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
 
 .poll
 {
 	bottom: 30px;
 	right: 5px;
-	position: fixed ;
 }
 
 body {
@@ -137,6 +142,7 @@ ul.topnav li a.active {
   }
 }
 
+
 .homeleft{
   float:top;
   float: none;
@@ -163,15 +169,13 @@ ul.topnav li a.active {
 }
 
 .footer {
-  color:black;
-  padding:1em;
   position:fixed;
+  padding:1em;
   bottom:0;
-  left: 0;
-  right: 0;
+  width: 100%;
   background-color: #222222;
   text-align: center;
-  height: 15px;
+  height: 30px;
 }
 
 .footer a{
