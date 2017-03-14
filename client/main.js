@@ -11,27 +11,27 @@ Template.tips.onCreated(function numtips() {
 });
 
 Template.tips.helpers({
-	
+
 	counter(){
 		return Template.instance().counter.get();
 	},
-	
+
 	charRemaining: function(){
     return Session.get('charRemaining');
   },
-  
+
     userID: function(){
     return Meteor.userID();
   },
-  
+
   tips:function(){
     return Tips.find({},{sort: {date:-1}});
   },
-  
+
   posts:function(){
     return Posts.find({},{sort: {date:-1}});
   },
-  
+
   timeDiff:function(tipDate){
 
   var timeDiff = new Date().getTime() - postDate.getTime();
@@ -64,8 +64,8 @@ Template.tips.helpers({
       return false;
 
   }
-  
-  
+
+
 });
 
 Template.tips.onRendered(function(){
@@ -73,13 +73,13 @@ Template.tips.onRendered(function(){
 });
 
 Template.tips.events({
-		
+
 	'keyup #tp': function(event){
     //Retrieve the contents from the Textarea
     var iText = event.target.value;
     Session.set("charRemaining", (140-iText.length) + " characters remaining");
 	},
-	
+
 	'submit #tipsForm': function(event){
     event.preventDefault();
     var tip = event.target.tp.value;
@@ -183,7 +183,15 @@ Template.posts.events({
       Meteor.call('likePost', this._id);
     }
     else {
-      Meteor.call('unlikePost', this._id);
+      Meteor.call('dislikePost', this._id);
+    }
+  },
+	'click .dislikeBox input' : function (event){
+    if(event.toElement.checked){
+      Meteor.call('dislikePost', this._id);
+    }
+    else {
+      Meteor.call('likePost', this._id);
     }
   },
   'click .editBox input' : function(event){
