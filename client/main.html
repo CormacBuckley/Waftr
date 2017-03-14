@@ -1,17 +1,21 @@
 <head>
   <title>Waftr</title>
   <link rel="stylesheet" type="text/css" href="\stylesheet.css">
-  <link rel="icon"
-      type="image/png"
-      href="logo.png">
-	  <style>
-
-</style>
+  <link rel="icon" type="image/png" href="logo.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+	
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 </head>
 
 <template name="mainLayout">
 {{> navigation}}
-
 {{> footer}}
 </template>
 
@@ -34,10 +38,10 @@
 		  	{{/linkTo}}
 		    </li>
 			<li class="dropdown">
-  				{{#linkTo route='collegeLife'}}College Life{{/linkTo}}
+  				{{#linkTo route='tips'}}College Life{{/linkTo}}
   					<div class="dropdown-content">
-  					{{#linkTo route='tips'}}Just the tips{{/linkTo}}
-  					{{#linkTo route='firstyear'}}Just first years{{/linkTo}}
+  					{{#linkTo route='tips'}}Tips{{/linkTo}}
+  					{{#linkTo route='firstyear'}}First Years{{/linkTo}}
   				</div>
 			</li>
 			<li>{{#linkTo route='events'}}
@@ -58,12 +62,9 @@
 	</nav>
 		<div class="container">
 		  <div class="row">
-			<!-- <div class="col-lg-2"></div> -->
 			<div class="col-lg-8">
-				<!-- This is where the main layout is rendered -->
 			  {{> yield}}
 			</div>
-			<!-- <div class="col-lg-2"></div> -->
 		  </div>
 		</div>
 </template>

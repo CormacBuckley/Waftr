@@ -1,8 +1,44 @@
 <template name="events">
-<h2>This is where events will be</h2>
-{{> addEditEventModal }}
-<div class="calendar" id="events-calendar"></div>
-<div class="poll">
-{{>polls}}
-</div>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Events</h1>
+        <p class="lead">Brief explanation of page.</p>
+      </div>
+
+    </div>
+	
+	<div class="col-xs-20 col-sm-20">
+        <p class="pull-right visible-xs">
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+		</p>
+        <div class="row">
+		<div class="col-xs-12 col-lg-12">
+			<div class="calendar" id="events-calendar"></div>
+				{{> addEditEventModal }}
+            </div><!--/.col-xs-6.col-lg-4-->
+			
+		<div class="col-xs-20 col-sm-20">
+			<p class="pull-right visible-xs">
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+		</p>
+				<div class="row">
+					<div class="col-xs-6 col-lg-4">
+						<h2>Poll</h2>
+						<div class="poll">
+						{{>polls}}
+						</div>
+					</div>
+				</div>
+		</div>
+		</div>
+	</div>
 </template>
+	
+
+
+	
+	
+
+
