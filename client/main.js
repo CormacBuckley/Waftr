@@ -183,7 +183,7 @@ Template.posts.events({
       Meteor.call('likePost', this._id);
     }
     else {
-      Meteor.call('dislikePost', this._id);
+      Meteor.call('unlikePost', this._id);
     }
   },
 	'click .dislikeBox input' : function (event){
@@ -191,7 +191,7 @@ Template.posts.events({
       Meteor.call('dislikePost', this._id);
     }
     else {
-      Meteor.call('likePost', this._id);
+      Meteor.call('relikePost', this._id);
     }
   },
   'click .editBox input' : function(event){
