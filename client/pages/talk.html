@@ -43,7 +43,7 @@
     {{#each posts}}
     <div class="well">
       <div class="row">
-        <div class="col-sm-8 pull-left">
+        <div class="avatar col-sm-8 pull-left">
           {{> avatar user=this shape="circle"}}
         </div>
         <div class="col-sm-1 pull-right">
@@ -58,7 +58,7 @@
       </div>
       </div>
       <div class="row">
-        <div class="col-sm-11 pull-left">
+        <div class="col-sm-9">
           <input class="form-control hidden" type="text" id="edit{{_id}}" value={{post}}>
           <div id="post{{_id}}">
             {{post}}
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="pull-right">
+        <div class="col-sm-1 pull-right">
         <div class="dislikeBox">
           <input type="checkbox" id="dislikeBox{{_id}}" checked={{checked (dislikes.users)}}>
           <label for="dislikeBox{{_id}}">
