@@ -57,6 +57,8 @@ Meteor.methods({
       }
     );
   },
+  
+ 
 
   'likePost' : function(postId){
       var update = true;
@@ -142,9 +144,11 @@ Meteor.methods({
     Posts.remove(postId);
   },
 
-  'updatePost' : function(postObj){
-    Posts.update({_id:postObj.id}, {$set: {post: postObj.post}});
+  
+  'updateTip' : function(postObj){
+    Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }
+
 
 });
 

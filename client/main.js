@@ -32,6 +32,7 @@ Template.tips.helpers({
     return Posts.find({},{sort: {date:-1}});
   },
 
+
   timeDiff:function(tipDate){
 
   var timeDiff = new Date().getTime() - postDate.getTime();
@@ -105,7 +106,7 @@ Meteor.subscribe('userPosts');
 Avatar.setOptions({
   customImageProperty: function() {
     var user = this;
-    user.profileImageUrl  = "eamon.jpg";
+    user.profileImageUrl  = "eee.jpg";
     return user.profileImageUrl;
   }
 });
