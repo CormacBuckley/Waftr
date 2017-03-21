@@ -11,6 +11,14 @@ Template.tips.onCreated(function numtips() {
 });
 
 Template.tips.helpers({
+	
+
+  userID: function(){
+    return Meteor.userID();
+  },
+  tips:function(){
+    return Tips.find({},{sort: {date:-1}});
+  },
 
 	counter(){
 		return Template.instance().counter.get();
@@ -20,18 +28,7 @@ Template.tips.helpers({
     return Session.get('charRemaining');
   },
 
-    userID: function(){
-    return Meteor.userID();
-  },
-
-  tips:function(){
-    return Tips.find({},{sort: {date:-1}});
-  },
-
-  posts:function(){
-    return Posts.find({},{sort: {date:-1}});
-  },
-
+ 
 
   timeDiff:function(tipDate){
 
