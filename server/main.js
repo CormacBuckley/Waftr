@@ -131,7 +131,7 @@ Meteor.methods({
           if(result) console.log(result);
       };
 
-      
+
     Posts.update(
       {_id:postId},
       {$pop: {"likes.users":Meteor.userId()}}

@@ -71,13 +71,13 @@ button {
       margin: auto;
       min-height:200px;
   }
-  
+
     @media (max-width: 600px) {
     .carousel-caption {
-      display: none; 
+      display: none;
     }
   }
-  
+
   body {
   padding-bottom: 20px;
 }
@@ -175,6 +175,7 @@ ul.topnav li a.active {
   background-color: #222222;
   text-align: center;
   height: 30px;
+  z-index: 10;
 }
 
 .footer a{
@@ -329,4 +330,8 @@ input[type=checkbox]{
   color: #333;
   cursor: pointer;
   cursor: hand;
+}
+
+.avatar{
+  z-index: 1;
 }
