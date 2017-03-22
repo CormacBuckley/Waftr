@@ -9,7 +9,7 @@ Meteor.subscribe('userPosts');
 Avatar.setOptions({
   customImageProperty: function() {
     var user = this;
-    user.profileImageUrl  = "eee.jpg";
+    user.profileImageUrl  = "eamon.jpg";
     return user.profileImageUrl;
   }
 });
