@@ -1,28 +1,79 @@
 <template name="firstyear">
+
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 100%;
+      }
+  
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  
       <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>First Years</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+        <p class="lead"> Here's some info you need to know to survive first year</p>
       </div>
-
+	  
+	  
+	  
+	  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading">Here's some local taxi numbers</div>
+      <div class="panel-body">Galway Taxi's - (091) 561 111  <br /> Big O Taxi's - (091) 585 858   <br />City Taxis - (091) 525 252 <br />Pro Cabs - (091) 565 900  </div>
+    </div>
+	
+	<div class="panel panel-danger">
+      <div class="panel-heading">Want to order food? Go here.</div>
+      <div class="panel-body"><a href="https://www.just-eat.ie/area/galway-city-centre/">Just Eat</a> <br /> <a href="http://whatsfordinner.ie/restaurants">What's For Dinner</a><br /><a href="https://www.marvin.ie/">Marvin.ie</a><br /><a href = "https://www.dominos.ie/"> Dominos Pizza </a> </div>
+    </div>
+	
+	<div class="panel panel-success">
+      <div class="panel-heading">Bored? Visit the other parts of our app.</div>
+      <div class="panel-body">{{#linkTo route='talk'}}Talk{{/linkTo}} <br /> {{#linkTo route='news'}}News{{/linkTo}}<br />{{#linkTo route='tips'}}Tips{{/linkTo}}<br /></div>
+    </div>
+	
+	
+  </div>
+	  
+	  
+	  
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-2">
+		</div>
+		
+        <div class="col-lg-8">
+          <h2>Lost? Zoom in to find classrooms, zoom out to explore Galway.</h2>         
        </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-        </div>
+       
+		<div class="col-lg-2">
+           </div>
       </div>
+	  
+	        <div class="row">
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKIuX5SfGchea7HtDAXNTh_4FbxwhN31U&callback=initMap"
+    async defer></script>
+</div>
+<div id="map">
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 53.28, lng: -9.06},
+          zoom: 17
+        });
+      }
+    </script>
+    
+</div>
 
 </template>
