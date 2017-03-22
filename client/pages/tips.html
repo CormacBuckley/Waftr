@@ -10,7 +10,7 @@
 		  <h1></h1>
            <div class="row">
             <div class="col-xs-6 col-lg-4">
-              <form class="form-horizontal" role="form" id="tipsForm">
+              <form class="form-horizontal" role="form" id="tipForm">
 						<div class="form-group">
 		
 							<textarea class="form-control required" rows="10"  id="tp" style="background-color:yellow" maxlength="170"></textarea>
@@ -30,18 +30,22 @@
 			<div class="row col-sm-4 col-sm-offset-1 textPost" rows = "10" >
   <div class="row">
     {{#each tips}}
+	
     <div class="well" style="background-color:yellow">
       <div class="row">
        
           <input class="form-control hidden" type="text" id="edit{{_id}}" value={{tip}}>
           <div id="tip{{_id}}">
             {{tip}}
+			
         </div>
       </div>
     </div>
     {{/each}}
   </div>           
   </div><!--/.col-xs-6.col-lg-4-->
+  
+  
 			
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

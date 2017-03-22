@@ -145,7 +145,7 @@ Meteor.methods({
   },
 
   
-  'updateTip' : function(postObj){
+  'updateTip' : function(tipObj){
     Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }
 
@@ -159,7 +159,7 @@ Meteor.publish('newsPosts', function(){
 	return News.find();
 });
 
-Meteor.publish('tipsPosts', function(){
+Meteor.publish('userTips', function(){
 	return Tips.find();
 });
 

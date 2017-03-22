@@ -4,35 +4,38 @@ import './main.html';
 
 
 Meteor.subscribe('userTips');
+Meteor.subscribe('userPosts');
 
-
-Template.tips.onCreated(function numtips() {
-	this.counter = new ReactiveVar(0);
+Avatar.setOptions({
+  customImageProperty: function() {
+    var user = this;
+    user.profileImageUrl  = "eee.jpg";
+    return user.profileImageUrl;
+  }
 });
 
-Template.tips.helpers({
-	
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+///////////////////////////////////////////////////
 
+
+
+
+
+
+Template.tips.helpers({
+  charRemaining: function(){
+    return Session.get('charRemaining');
+  },
   userID: function(){
     return Meteor.userID();
   },
   tips:function(){
     return Tips.find({},{sort: {date:-1}});
   },
-
-	counter(){
-		return Template.instance().counter.get();
-	},
-
-	charRemaining: function(){
-    return Session.get('charRemaining');
-  },
-
- 
-
   timeDiff:function(tipDate){
-
-  var timeDiff = new Date().getTime() - postDate.getTime();
+    // Subtract current time from time of post to get the difference
+    var timeDiff = new Date().getTime() - tipDate.getTime();
     var diffDays = Math.floor(timeDiff / (1000*3600*24));
     var diffHours = Math.floor(timeDiff / (1000*3600));
     var diffMins = Math.floor(timeDiff / (1000*60));
@@ -62,51 +65,54 @@ Template.tips.helpers({
       return false;
 
   }
-
-
 });
+
+
 
 Template.tips.onRendered(function(){
-  $("#tipsForm").validate();
+  $("#tipForm").validate();
 });
 
+
+
+
 Template.tips.events({
-
-	'keyup #tp': function(event){
+  'keyup #tp': function(event){
     //Retrieve the contents from the Textarea
-    var iText = event.target.value;
-    Session.set("charRemaining", (140-iText.length) + " characters remaining");
-	},
-
-	'submit #tipsForm': function(event){
+    var inputText = event.target.value;
+    Session.set("charsRemaining", (140-inputText.length) + " characters remaining");
+  },
+  'submit #tipForm': function(event){
     event.preventDefault();
     var tip = event.target.tp.value;
     //Clearing the textarea contents
     event.target.reset();
-    Session.set("charRemaining", 140 + " charcters remaining");
+    Session.set("charsRemaining", 140 + " characters remaining");
     Meteor.call('insertTip', tip);
   },
+  
+
 });
 
 
-
-
-
-
-
-
-
-
-
-Meteor.subscribe('userPosts');
-
-Avatar.setOptions({
-  customImageProperty: function() {
-    var user = this;
-    user.profileImageUrl  = "eee.jpg";
-    return user.profileImageUrl;
+Template.tips.helpers({
+  loggedIn:function(){
+    return !!Meteor.user();
   }
 });
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+////////////////////////////////////////////
+/////////////////////////////////////////////
+
+
 
 
 Template.posts.helpers({
@@ -210,28 +216,8 @@ Template.posts.events({
   }
 });
 
-/*Template.data.helpers({
-  messages : function (){
-    return Messages.find();
-  }
-});
 
-Template.data.events({
-  'click #delete' : function(event, instance) {
-    // Remove the vehicle with current id
-    Meteor.call('deleteMessage', this._id)
-  }
-});
 
-Template.data.events({
-  'submit.addDataForm' : function(event, instance){
-    event.preventDefault();
-    Meteor.call('createMessage',{name:event.target.name.value,
-      message:event.target.model.value
-  });
-  }
-});
-*/
 Template.posts.helpers({
   loggedIn:function(){
     return !!Meteor.user();
