@@ -10,6 +10,7 @@ Avatar.setOptions({
 });
 
 
+
 Meteor.methods({
   'insertPost':function(post){
     Posts.insert(

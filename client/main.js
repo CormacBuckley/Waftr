@@ -16,10 +16,6 @@ Avatar.setOptions({
 ///////////////////////////////////////////////////
 
 
-
-
-
-
 Template.tips.helpers({
   charRemaining: function(){
     return Session.get('charRemaining');
