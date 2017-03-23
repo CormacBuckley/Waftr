@@ -89,10 +89,10 @@ button {
 	right: 5px;
 }
 
-body {
+/*body {
   margin: 0;
   font-family:'Lato', sans-serif;
-}
+}*/
 
 ul.topnav {
   list-style-type: none;
@@ -110,14 +110,14 @@ img.logo{
   height:45px;
 }
 
-.bttn{
+/*.bttn{
   display: block;
   color: white;
   text-align: center;
   padding: 15px 20px;
   text-decoration: none;
   background-color: #333;
-}
+}*/
 
 ul.topnav li a {
   display: block;
@@ -142,20 +142,20 @@ ul.topnav li a.active {
 }
 
 
-.homeleft{
+/*.homeleft{
   float:top;
   float: none;
   width:60em;
-}
+}*/
 
-.copyright{
+/*.copyright{
   color: white;
   float: right;
 	position: relative;
 	bottom: 10px;
-}
+}*/
 
-.in{
+/*.in{
   background-color: 	rgba(0, 0, 0, 0);
   border-style: inset;
   width: 30%;
@@ -165,9 +165,9 @@ ul.topnav li a.active {
   border-color:#4EB6D3;
   border-bottom-color: #FFFF0D;
 
-}
+}*/
 
-.footer {
+/*.footer {
   position:fixed;
   padding:1em;
   bottom:0;
@@ -192,13 +192,13 @@ ul.topnav li a.active {
 
 .footer a.active {
  color: black;
-}
+}*/
 
 
-.content{
+/*.content{
   margin: auto;
   width: 70%;
-}
+}*/
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -227,7 +227,7 @@ visibility: hidden;
 	margin: 10%;
 }
 
-.dropdown-content {
+/*.dropdown-content {
     display: none;
 
     position: absolute;
@@ -255,13 +255,11 @@ li a:hover, .dropdown:hover .dropbtn {
 	text-decoration: none;
 }
 
-l
-
 .dropdown-content a:hover {background-color: #f1f1f1}
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+}*/
 
 
 input[type=checkbox]{
