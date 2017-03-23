@@ -25,10 +25,9 @@ Meteor.methods({
           totalLikes:0,
           users:[]
         },
-        retweets:{
-          totalRetweets:0,
+        dislikes:{
           users:[]
-        }
+        },
       },
       function( error, result){
         if(error) console.log(error);
@@ -36,7 +35,7 @@ Meteor.methods({
       }
     );
   },
-  
+
   'insertTip':function(tip){
     Tips.insert(
       {
@@ -86,13 +85,51 @@ Meteor.methods({
         };
       }
     },
-  'unlikePost' : function(postId){
-    Posts.update({_id:postId},
-    {$inc : {"likes.totalLikes":-1}}),
-    function(error, result){
-      if(error) console.log(error);
-      if(result) console.log(result);
-    };
+    'unlikePost' : function(postId){
+      Posts.update({_id:postId},
+      {$inc : {"likes.totalLikes":-1}}),
+      function(error, result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      };
+    },
+
+    'dislikePost' : function(postId){
+        var update = true;
+        Posts.update(
+          {_id:postId},
+          {$addToSet: {"dislikes.users":Meteor.userId()}}
+        ), function(error,result){
+          if(error)
+          {
+            //user has already disliked this post
+            update = false;
+          }
+          if(result)
+          {
+            //Decrement counter if user dislikes it
+            update = true;
+          }
+        };
+
+        if(update){
+          Posts.update({_id:postId},
+          {$inc : {"likes.totalLikes": -1}}),
+          function(error, result){
+            if(error) console.log(error);
+            if(result) console.log(result);
+          };
+        }
+      },
+      'relikePost' : function(postId){
+        Posts.update({_id:postId},
+        {$inc : {"likes.totalLikes":1}}),
+        function(error, result){
+          if(error) console.log(error);
+          if(result) console.log(result);
+      };
+
+
     Posts.update(
       {_id:postId},
       {$pop: {"likes.users":Meteor.userId()}}
@@ -125,23 +162,3 @@ Meteor.publish('tipsPosts', function(){
 Meteor.settings.contactForm = {
   emailTo: 'naoisecallery2@gmail.com'
 };
-
-/*Meteor.publish('allMessages', function(){
-    return Messages.find();
-});
-
-Meteor.methods({
-  'createMessage': function(messageObj){
-    Messages.insert({
-      name: messageObj.name,
-      message: messageObj.message,
-    //  createdBy: Meteor.userID()
-    });
-  }
-});
-
-Meteor.methods({
-    'deleteMessage': function(_Id){
-        Messages.remove(_Id);
-    }
-});*/
