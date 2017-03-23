@@ -6,11 +6,7 @@ Meteor.startup(() => {
 });
 
 Avatar.setOptions({
-  customImageProperty: function() {
-    var user = this;
-    user.profileImageUrl  = "eamon.jpg";
-    return user.profileImageUrl;
-  }
+  gravatarDefault: "retro"
 });
 
 
@@ -58,7 +54,10 @@ Meteor.methods({
     );
   },
 
+
+
   'likePost' : function(postId){
+    //If user is in dislike collection, pop them from that and inc likes by two
       var update = true;
       Posts.update(
         {_id:postId},
@@ -92,9 +91,17 @@ Meteor.methods({
         if(error) console.log(error);
         if(result) console.log(result);
       };
+      Posts.update(
+        {_id:postId},
+        {$pop: {"likes.users":Meteor.userId()}}
+      ), function(error,result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      };
     },
 
     'dislikePost' : function(postId){
+        //If user is in likes collection, pop them from that and inc likes by minus two
         var update = true;
         Posts.update(
           {_id:postId},
@@ -128,23 +135,23 @@ Meteor.methods({
           if(error) console.log(error);
           if(result) console.log(result);
       };
-
-
-    Posts.update(
-      {_id:postId},
-      {$pop: {"likes.users":Meteor.userId()}}
-    ), function(error,result){
-      if(error) console.log(error);
-      if(result) console.log(result);
-    };
+      Posts.update(
+        {_id:postId},
+        {$pop: {"dislikes.users":Meteor.userId()}}
+      ), function(error,result){
+        if(error) console.log(error);
+        if(result) console.log(result);
+      };
   },
   'deletePost' : function(postId){
     Posts.remove(postId);
   },
 
-  'updatePost' : function(postObj){
-    Posts.update({_id:postObj.id}, {$set: {post: postObj.post}});
+
+  'updateTip' : function(tipObj){
+    Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }
+
 
 });
 
@@ -155,7 +162,7 @@ Meteor.publish('newsPosts', function(){
 	return News.find();
 });
 
-Meteor.publish('tipsPosts', function(){
+Meteor.publish('userTips', function(){
 	return Tips.find();
 });
 

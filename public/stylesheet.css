@@ -78,7 +78,14 @@ button {
     }
   }
 
-.poll {
+
+  body {
+  padding-bottom: 20px;
+}
+
+
+.poll
+{
 	bottom: 30px;
 	right: 5px;
 }
