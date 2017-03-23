@@ -5,13 +5,10 @@ import './main.html';
 
 Meteor.subscribe('userTips');
 Meteor.subscribe('userPosts');
+Meteor.subscribe('user');
 
 Avatar.setOptions({
-  customImageProperty: function() {
-    var user = this;
-    user.profileImageUrl  = "eamon.jpg";
-    return user.profileImageUrl;
-  }
+  gravatarDefault: "retro"
 });
 
 //////////////////////////////////////////////////
@@ -90,7 +87,7 @@ Template.tips.events({
     Session.set("charsRemaining", 140 + " characters remaining");
     Meteor.call('insertTip', tip);
   },
-  
+
 
 });
 
@@ -156,10 +153,19 @@ Template.posts.helpers({
     else
       return false;
 
-  }
+  },
 });
 
+Template.registerHelper( 'avatars', function( avatarSize, user ) {
+  if ( user && user.md5hash ) {
+    var md5hash = user.md5hash;
+  } else if ( this.md5hash ) {
+    var md5hash = this.md5hash;
+  }
 
+  md5hash = md5hash || "3eda6fcd3204ef285fa52176c28c4d3e"; // Equivalent to Gravatar.hash( 'none@none.com' );
+  return Gravatar.imageUrl( md5hash, { secure: true, size: avatarSize, d: 'wavatar', rating: 'pg' } );
+});
 
 Template.posts.onRendered(function(){
   $("#postForm").validate();

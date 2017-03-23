@@ -6,11 +6,7 @@ Meteor.startup(() => {
 });
 
 Avatar.setOptions({
-  customImageProperty: function() {
-    var user = this;
-    user.profileImageUrl  = "eamon.jpg";
-    return user.profileImageUrl;
-  }
+  gravatarDefault: "retro"
 });
 
 
@@ -57,8 +53,8 @@ Meteor.methods({
       }
     );
   },
-  
- 
+
+
 
   'likePost' : function(postId){
     //If user is in dislike collection, pop them from that and inc likes by two
@@ -151,7 +147,7 @@ Meteor.methods({
     Posts.remove(postId);
   },
 
-  
+
   'updateTip' : function(tipObj){
     Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }

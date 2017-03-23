@@ -5,3 +5,9 @@ Meteor.publish('allNewsPosts', function(){
 Meteor.publish('singleNewsPosts', function(id){
   return NewsPosts.find(id);
 });
+
+Meteor.publish( 'user', function() {
+  return Meteor.users.find( this.userId, {
+    fields: { md5hash: 1 }
+  });
+});
