@@ -148,12 +148,12 @@ ul.topnav li a.active {
   width:60em;
 }
 
-.copyright{
+/*.copyright{
   color: white;
   float: right;
 	position: relative;
 	bottom: 10px;
-}
+}*/
 
 .in{
   background-color: 	rgba(0, 0, 0, 0);
