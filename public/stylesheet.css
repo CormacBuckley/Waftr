@@ -89,10 +89,10 @@ button {
 	right: 5px;
 }
 
-/*body {
+body {
   margin: 0;
   font-family:'Lato', sans-serif;
-}*/
+}
 
 ul.topnav {
   list-style-type: none;
@@ -110,14 +110,14 @@ img.logo{
   height:45px;
 }
 
-/*.bttn{
+.bttn{
   display: block;
   color: white;
   text-align: center;
   padding: 15px 20px;
   text-decoration: none;
   background-color: #333;
-}*/
+}
 
 ul.topnav li a {
   display: block;
@@ -142,20 +142,20 @@ ul.topnav li a.active {
 }
 
 
-/*.homeleft{
+.homeleft{
   float:top;
   float: none;
   width:60em;
-}*/
+}
 
-/*.copyright{
+.copyright{
   color: white;
   float: right;
 	position: relative;
 	bottom: 10px;
-}*/
+}
 
-/*.in{
+.in{
   background-color: 	rgba(0, 0, 0, 0);
   border-style: inset;
   width: 30%;
@@ -165,9 +165,9 @@ ul.topnav li a.active {
   border-color:#4EB6D3;
   border-bottom-color: #FFFF0D;
 
-}*/
+}
 
-/*.footer {
+.footer {
   position:fixed;
   padding:1em;
   bottom:0;
@@ -192,19 +192,19 @@ ul.topnav li a.active {
 
 .footer a.active {
  color: black;
-}*/
+}
 
 
-/*.content{
+.content{
   margin: auto;
   width: 70%;
-}*/
+}
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
 }
 
-.popupbox{
+/*.popupbox{
 background-image:url(yellowthing.jpg);
 background-repeat:no-repeat;
 background-size: 100%;
@@ -220,14 +220,14 @@ border: solid #000000 2px;
 z-index: 9;
 font-family: 'Lato', sans-serif;
 visibility: hidden;
-}
+}*/
 
 .contactForm
 {
 	margin: 10%;
 }
 
-/*.dropdown-content {
+.dropdown-content {
     display: none;
 
     position: absolute;
@@ -235,14 +235,14 @@ visibility: hidden;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 	overflow: hidden;
-	background-color: #222222;
-	text-decoration: none;
+	/*background-color: #222222;*/
+	/*text-decoration: none;*/
 }
 
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+  /*  color: white;*/
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -251,15 +251,17 @@ li a, .dropbtn {
 
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: Maroon;
+/*    background-color: Maroon;*/
 	text-decoration: none;
 }
+
+l
 
 .dropdown-content a:hover {background-color: #f1f1f1}
 
 .dropdown:hover .dropdown-content {
     display: block;
-}*/
+}
 
 
 input[type=checkbox]{
