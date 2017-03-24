@@ -94,7 +94,7 @@ body {
   font-family:'Lato', sans-serif;
 }
 
-ul.topnav {
+/*ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -155,7 +155,7 @@ ul.topnav li a.active {
 	bottom: 10px;
 }*/
 
-.in{
+/*.in{
   background-color: 	rgba(0, 0, 0, 0);
   border-style: inset;
   width: 30%;
@@ -195,11 +195,11 @@ ul.topnav li a.active {
 }
 
 
-.content{
+/*.content{
   margin: auto;
   width: 70%;
 }
-.navbar {
+/*.navbar {
   margin-bottom: 0;
   border-radius: 0;
 }
