@@ -1,8 +1,11 @@
 <template name="NewsPostsItem">
-  <h3>
-	{{title}}
+<div class="post-preview">
+
     {{#linkTo route='singleNewsPosts'}}
-	<button type="button" class="btn btn-default">Go Somewhere</button>
-    {{/linkTo}}
-  </h3>
+	<h2 class="post-title">
+    {{title}}
+  </h2>
+  {{/linkTo}}
+    <p class="post-meta">Posted by {{author}}</p>
+</div>
 </template>
