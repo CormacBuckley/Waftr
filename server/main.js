@@ -147,7 +147,9 @@ Meteor.methods({
     Posts.remove(postId);
   },
 
-
+  'updatePost' : function(postId){
+    Posts.update({_id:postId.id}, {$set: {post: postId.post}});
+  },
   'updateTip' : function(tipObj){
     Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }
