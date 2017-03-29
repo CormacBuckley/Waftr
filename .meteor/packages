@@ -23,7 +23,7 @@ blaze-html-templates
 stylus@2.513.9
 accounts-password@1.3.4
 ian:accounts-ui-bootstrap-3
-accounts-facebook@1.1.0
+accounts-facebook
 aldeed:collection2@2.10.0
 aldeed:autoform@5.8.1
 alanning:roles
@@ -42,3 +42,5 @@ facebook-config-ui@1.0.0
 jparker:gravatar
 email
 accounts-base
+accounts-google
+accounts-twitter
