@@ -3,6 +3,10 @@ import { Accounts } from 'meteor/accounts-base';
 
 Meteor.startup(() => {
   // code to run on server at startup
+  //Sets MAIL_URL
+  process.env.MAIL_URL = 'smtp://postmaster@sandbox769ee9e314274e438a0ab83e38092df2.mailgun.org:d2ef2139b9af256b775d1027f05b9bbcsmtp.mailgun.org:587';
+  //Limits accounts to NUIG email addresses. 
+  Accounts.config({restrictCreationByEmailDomain: 'nuigalway.ie'}) ;
 });
 
 Avatar.setOptions({
@@ -147,7 +151,9 @@ Meteor.methods({
     Posts.remove(postId);
   },
 
-
+  'updatePost' : function(postId){
+    Posts.update({_id:postId.id}, {$set: {post: postId.post}});
+  },
   'updateTip' : function(tipObj){
     Tips.update({_id:tipObj.id}, {$set: {tip: tipObj.tip}});
   }
