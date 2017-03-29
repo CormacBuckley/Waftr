@@ -1,16 +1,16 @@
 Template.polls.onCreated(function helloOnCreated()
 {
-	this.increment1 = new ReactiveVar(0);
-	this.increment2 = new ReactiveVar(0);
-	this.increment3 = new ReactiveVar(0);
-	this.increment4 = new ReactiveVar(0);
-	this.increment5 = new ReactiveVar(0);
-	this.increment6 = new ReactiveVar(0);
-	this.increment7 = new ReactiveVar(0);
-	this.increment8 = new ReactiveVar(0);
-	this.increment9 = new ReactiveVar(0);
-	this.increment10 = new ReactiveVar(0);
-	total = 0;
+	this.increment1 = new ReactiveVar(34);
+	this.increment2 = new ReactiveVar(50);
+	this.increment3 = new ReactiveVar(41);
+	this.increment4 = new ReactiveVar(14);
+	this.increment5 = new ReactiveVar(12);
+	this.increment6 = new ReactiveVar(69);
+	this.increment7 = new ReactiveVar(4);
+	this.increment8 = new ReactiveVar(13);
+	this.increment9 = new ReactiveVar(10);
+	this.increment10 = new ReactiveVar(7);
+	total = 75;
 	percentage = [0,0,0,0,0,0,0,0,0,0];
 	x = [1,1,1,1,1,1,1,1,1,1];	
 });
@@ -23,6 +23,7 @@ Template.polls.helpers(
   },
   increment2()
   {
+	Meteor.call('likePoll', this._id);
     return Template.instance().increment2.get();
   },
   increment3()

@@ -43,15 +43,8 @@ Meteor.methods({
       {
         tip:tip,
         date: new Date(),
-        createdBy: Meteor.userId(),
-        likes:{
-          totalLikes:0,
-          users:[]
-        },
-        retweets:{
-          totalRetweets:0,
-          users:[]
-        }
+        createdBy: Meteor.userId(),     
+
       },
       function( error, result){
         if(error) console.log(error);
