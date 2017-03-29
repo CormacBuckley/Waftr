@@ -201,8 +201,6 @@ Template.posts.events({
   }
 });
 
-
-
 Template.posts.helpers({
   loggedIn:function(){
     return !!Meteor.user();
