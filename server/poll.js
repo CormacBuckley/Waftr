@@ -7,12 +7,12 @@ Meteor.startup(() => {
 
 Meteor.methods({
 	
-	  'likePoll' : function(pollID){
+	  'likePoll' : function(){
       var update = true;
      
 
   
-        Polls.update({_id:pollId},
+        Polls.update(
         {$inc : {"poll2.totalLikes": 1}}),
         function(error, result){
           if(error) console.log(error);

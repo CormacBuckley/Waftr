@@ -1,4 +1,9 @@
 <template name="tips">
+
+<script>
+document.onload(myFunction);
+</script>
+<body onload="myFunction();">
 <link  href="http://fonts.googleapis.com/css? family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
     <div class="container">
 
@@ -32,8 +37,28 @@
   <div class="row">
     {{#each tips}}
 	
-    <div class="well" id ="tposts" style="background-color:yellow;  display:block; height:13em; width:13em; padding: 2em; -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-	-moz-box-shadow:5px 5px 7px rgba(33,33,33,1); font-family:Reenie Beanie,arial,sans-serif;" >
+	
+
+		<script>
+			function myFunction() {
+			var num = Math.random();
+			}
+			
+			if(num > 1 && num < 2){
+			document.getElementById("tposts").style.backgroundColor = "#cfc";
+			}
+			
+			if(num > 1 && num < 2){
+			document.getElementById("tposts").style.backgroundColor = "#ccf";
+			}
+			
+			if(num > 2 && num < 3){
+			document.getElementById("tposts").style.backgroundColor = "#ffc";
+			}
+		</script>
+	
+	
+    <div class="well" id ="tposts" >
       <div class="row">
        
           <input class="form-control hidden" type="text" id="edit{{_id}}" value={{tip}}>
@@ -58,4 +83,5 @@
       <hr>
 
     </div>
+	</body>
 </template>
