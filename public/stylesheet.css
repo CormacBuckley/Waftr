@@ -248,29 +248,29 @@ input[type=checkbox]{
 }
 
 .editBox label:before{
-  content: "\f040";
+  content: "\f044";
   font-family: FontAwesome;
-  color: #3498db;
+  color: #32CD32;
   cursor: pointer;
   cursor: hand;
 }
 
 .editBox input[type=checkbox]:checked + label:before{
   content:"Save";
-  color: #333;
+  color: #32CD32;
   cursor: pointer;
   cursor: hand;
 }
 .deleteBox label:before{
-  content: "\f014";
+  content: "\f12d";
   font-family: FontAwesome;
-  color: #3498db;
+  color: #d41f11;
   cursor: pointer;
   cursor: hand;
 }
 
 .deleteBox input[type=checkbox]:checked + label:before{
-  content: "\f014";
+  content: "\f12d";
   font-family: FontAwesome;
   color: #333;
   cursor: pointer;

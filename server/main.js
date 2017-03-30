@@ -11,6 +11,9 @@ Meteor.startup(() => {
   Accounts.config({restrictCreationByEmailDomain: 'nuigalway.ie'}) ;
 
 //  Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false});
+
+process.env.MAIL_URL = "smtp://postmaster%40postmaster@sandbox6a9174e783f245fb9e4e109bed3b86e6.mailgun.org.mailgun.org:5bd462ef0f7f8f8760c018e62b31b921@smtp.mailgun.org:587";
+
 });
 
 Avatar.setOptions({
@@ -45,7 +48,7 @@ Meteor.methods({
       {
         tip:tip,
         date: new Date(),
-        createdBy: Meteor.userId(),     
+        createdBy: Meteor.userId(),
 
       },
       function( error, result){
