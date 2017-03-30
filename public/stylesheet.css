@@ -173,7 +173,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-/*    background-color: Maroon;*/
+  /*background-color: Maroon;*/
 	text-decoration: none;
 }
 

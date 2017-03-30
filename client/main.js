@@ -63,8 +63,6 @@ Template.tips.onRendered(function(){
 });
 
 
-
-
 Template.tips.events({
   'keyup #tp': function(event){
     //Retrieve the contents from the Textarea
@@ -204,5 +202,17 @@ Template.posts.events({
 Template.posts.helpers({
   loggedIn:function(){
     return !!Meteor.user();
+  }
+});
+
+Template.login.events({
+  'click .login-facebook': function(e){
+    e.preventDefault();
+
+    Meteor.loginWithFacebook({requestPermissions:['public_profile', 'email']}, function(err){
+      if(err){
+          console.log(err);
+      }
+    });
   }
 });

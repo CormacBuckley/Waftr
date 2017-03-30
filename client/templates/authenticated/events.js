@@ -20,7 +20,7 @@ Template.events.onRendered( () => {
         callback( data );
       }
     },
-	
+
 	eventRender( event, element ) {
       element.find( '.fc-content' ).html(
         `<h4>${ event.title }</h4>
@@ -28,7 +28,7 @@ Template.events.onRendered( () => {
          <p class="type-${ event.type }">#${ event.type }</p>
         `
       );
-    }, 
+    },
 	eventDrop( event, delta, revert ) {
       let date = event.start.format();
       if ( !isPast( date ) ) {
@@ -57,7 +57,7 @@ Template.events.onRendered( () => {
       $( '#add-edit-event-modal' ).modal( 'show' );
     }
   });
-  
+
    Tracker.autorun( () => {
     Events.find().fetch();
     $( '#events-calendar' ).fullCalendar( 'refetchEvents' );

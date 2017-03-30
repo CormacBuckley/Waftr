@@ -1,10 +1,11 @@
-Accounts.ui.config({
+/*Accounts.ui.config({
     requestPermissions: {},
     extraSignupFields: [{
         fieldName: 'Username',
         fieldLabel: 'Username',
         inputType: 'text',
         visible: true,
+        saveToProfile: true,
         validate: function(value, errorFunction) {
           if (!value) {
             errorFunction("Enter your username");
@@ -28,4 +29,4 @@ Accounts.ui.config({
             }
         }
     }]
-});
+});*/
