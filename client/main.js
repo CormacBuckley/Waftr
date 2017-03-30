@@ -11,6 +11,11 @@ Avatar.setOptions({
   gravatarDefault: "retro"
 });
 
+Template.tips.rendered = function() { 
+  $('body').attr({
+    onload: 'myFunction();'
+  });
+}
 
 Template.tips.helpers({
   charRemaining: function(){

@@ -8,6 +8,8 @@ Meteor.startup(() => {
   //Limits accounts to NUIG email addresses.
   Accounts.config({restrictCreationByEmailDomain: 'nuigalway.ie'}) ;
 
+
+
 });
 
 Avatar.setOptions({

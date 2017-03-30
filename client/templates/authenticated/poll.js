@@ -23,7 +23,6 @@ Template.polls.helpers(
   },
   increment2()
   {
-	Meteor.call('likePoll', this._id);
     return Template.instance().increment2.get();
   },
   increment3()
@@ -58,22 +57,42 @@ Template.polls.helpers(
   {
     return Template.instance().increment10.get();
   },
+  
+   userID: function(){
+    return Meteor.userID();
+  },
+  
+  checked:function(users){
+    if($.inArray(Meteor.userId(), users) > -1)
+    return true;
+    else
+      return false;
+  },
+  userCreated: function(createdBy){
+    if(createdBy == Meteor.userId())
+    return true;
+    else
+      return false;
+
+  }
+  
 });
 
 Template.polls.events(
 {	
   'click .bt1'(event, instance)
   {
-    instance.increment1.set(instance.increment1.get() + x[0]);
+	instance.increment1.set(instance.increment1.get() + x[0]);
 	total += x[0];
 	x[0] *=-1;
   },
 
   'click .bt2'(event, instance)
   {
-    instance.increment2.set(instance.increment2.get() + x[1]);
+	instance.increment2.set(instance.increment2.get() + x[1]);
 	total += x[1];
 	x[1] *=-1;
+   
   },
   'click .bt3'(event, instance)
   {
