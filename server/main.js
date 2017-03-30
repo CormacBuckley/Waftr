@@ -1,16 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
-
 Meteor.startup(() => {
   // code to run on server at startup
   //Sets MAIL_URL - Should be done as a Shell command.
 //  process.env.MAIL_URL = 'smtp://postmaster%40<postmaster@sandbox769ee9e314274e438a0ab83e38092df2>.mailgun.org:d2ef2139b9af256b775d1027f05b9bbcsmtp.mailgun.org:25';
-
   //Limits accounts to NUIG email addresses.
   Accounts.config({restrictCreationByEmailDomain: 'nuigalway.ie'}) ;
 
-//  Accounts.config({sendVerificationEmail: true, forbidClientAccountCreation: false});
 });
 
 Avatar.setOptions({
@@ -45,7 +42,7 @@ Meteor.methods({
       {
         tip:tip,
         date: new Date(),
-        createdBy: Meteor.userId(),     
+        createdBy: Meteor.userId(),
 
       },
       function( error, result){
